@@ -8,7 +8,7 @@ Try to compare the performance of the algorithms
 
 #### Pure brute force algorithm
 
-|BruteForce Iteration|BruteForce - results|BruteForce - time|
+|Point|Nearest Points| Time (ms)|
 |-----------|-----------|-----------|
 |(1035,-814)|(1035,-813),(1036,-813),(1036,-815)|1644.5008|
 |(249,-669)|(249,-668),(251,-668),(247,-668)|1484.1542|
@@ -22,7 +22,7 @@ Try to compare the performance of the algorithms
 |(-1304,169)|(-1306,169),(-1307,169),(-1307,170)|1411.2168|
 
 #### Optimised brute force algorithm
-|OptimisedBruteForce Iteration|BruteForce - results|BruteForce - time|
+|Point |Nearest Points| Time (ms)|
 |-----------|-----------|-----------|
 |(1816,1925)|(1816,1924),(1816,1927),(1815,1923)|735.4062|
 |(565,461)|(564,462),(564,459),(566,459)|765.5802|
