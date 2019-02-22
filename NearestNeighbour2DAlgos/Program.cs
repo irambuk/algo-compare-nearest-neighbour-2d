@@ -17,7 +17,7 @@ namespace NearestNeighbour2DAlgos
 
             var executor = new SearchExecutor();
 
-            WriteDataTableHeader("Iteration", "BruteForce - results", "BruteForce - time", "a - results", "a - time");
+            WriteDataTableHeader("BruteForce Iteration", "BruteForce - results", "BruteForce - time");
 
             for (int i = 0; i < 10; i++)
             {
@@ -25,10 +25,21 @@ namespace NearestNeighbour2DAlgos
                 var point = points[randomIndex];
                 var result = executor.ExecuteSearch(new BruteForceNearestNeighbourSearcher(), point, 3, points);
 
-                WriteDataTableRow(ResultsToString(point), ResultsToString(result.NearestNeighbours), result.TimeInMilliseconds, "test", 0);
+                WriteDataTableRow(ResultsToString(point), ResultsToString(result.NearestNeighbours), result.TimeInMilliseconds);
             }
 
-            Console.WriteLine("Press any key to terminate");
+            WriteDataTableHeader("OptimisedBruteForce Iteration", "BruteForce - results", "BruteForce - time");
+
+            for (int i = 0; i < 10; i++)
+            {
+                var randomIndex = new Random().Next(0, noOfPoints);
+                var point = points[randomIndex];
+                var result = executor.ExecuteSearch(new OptimisedBruteForceNearestNeighbourSearcher(), point, 3, points);
+
+                WriteDataTableRow(ResultsToString(point), ResultsToString(result.NearestNeighbours), result.TimeInMilliseconds);
+            }
+
+            Console.WriteLine("Press enter to terminate");
             Console.ReadLine();
 
             return 0;
@@ -46,15 +57,15 @@ namespace NearestNeighbour2DAlgos
             return String.Join(',', texts.ToArray());
         }
 
-        private static void WriteDataTableHeader(string header1, string header2, string header3, string header4, string header5)
+        private static void WriteDataTableHeader(string header1, string header2, string header3)
         {
-            Console.WriteLine($"|{header1}|{header2}|{header3}|{header4}|{header5}|");
-            Console.WriteLine($"|-----------|-----------|-----------|-----------|-----------|");
+            Console.WriteLine($"|{header1}|{header2}|{header3}|");
+            Console.WriteLine($"|-----------|-----------|-----------|");
         }
 
-        private static void WriteDataTableRow(string index, string bruteForceResults, double bruteForceTime, string aResults, double aTime)
+        private static void WriteDataTableRow(string index, string bruteForceResults, double bruteForceTime)
         {
-            Console.WriteLine($"|{index}|{bruteForceResults}|{bruteForceTime}|{aResults}|{aTime}|");
+            Console.WriteLine($"|{index}|{bruteForceResults}|{bruteForceTime}|");
         }
     }
 }
