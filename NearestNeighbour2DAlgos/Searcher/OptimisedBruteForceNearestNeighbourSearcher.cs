@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace NearestNeighbour2DAlgos.Searcher
 {
@@ -20,7 +19,17 @@ namespace NearestNeighbour2DAlgos.Searcher
                     continue; //same point
                 }
 
-                var distance = CalculateDistance(pointInSpace, currentPoint);
+                // do a quick check before calcualte distance
+                if (lastLength != 0)
+                {
+                    if(Math.Abs(currentPoint.X - pointInSpace.X) > lastLength || Math.Abs(currentPoint.Y - pointInSpace.Y) > lastLength)
+                    {
+                        continue;
+                    }
+                }
+
+                // calcualte distance only for remaining items
+                var distance = currentPoint.CalculateDistance(pointInSpace);
 
                 if (calculated.Count() < noOfNeighboursToFind)
                 {
@@ -39,20 +48,6 @@ namespace NearestNeighbour2DAlgos.Searcher
             }
             
             return calculated.Select(c => c.Point).ToList();
-        }
-
-        private double CalculateDistance(PointInSpace a, PointInSpace b)
-        {
-            var x2 = Math.Pow((a.X - b.X), 2);
-            var y2 = Math.Pow((a.Y - b.Y), 2);
-            return Math.Sqrt(x2 + y2);
-        }
-
-        private class CalculatedResult
-        {
-            public double Distance { get; set; }
-
-            public PointInSpace Point { get; set; }
         }
     }
 }
