@@ -23,7 +23,7 @@ namespace NearestNeighbour2DAlgos
             
             for (int i = 1; i <= 10; i++)
             {
-                var currentNoOfPoints = i * 1000000;
+                var currentNoOfPoints = i * i * 1000000;
 
                 var randomIndex = new Random().Next(0, currentNoOfPoints);
 
