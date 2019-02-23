@@ -25,7 +25,6 @@ Try to compare the performance of the algorithms
 
 ##### Graph
 ![alt text](https://github.com/irambuk/algo-compare-nearest-neighbour-2d/blob/master/comparison-chart.png "Comparision Image")
-https://github.com/irambuk/algo-compare-nearest-neighbour-2d/blob/master/comparison-chart.png
 
 
 ### Feedback
